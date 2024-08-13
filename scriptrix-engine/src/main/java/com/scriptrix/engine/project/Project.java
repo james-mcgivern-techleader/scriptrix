@@ -4,11 +4,13 @@ import com.scriptrix.engine.jaxb.PathAdapter;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.nio.file.Path;
 
+@Setter
 @XmlRootElement
 public class Project {
 
@@ -35,21 +37,9 @@ public class Project {
     return projectDirectory;
   }
 
-  public void setProjectDirectory(Path projectDirectory) {
-    this.projectDirectory = projectDirectory;
-  }
-
   @XmlElement
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setSettings(ProjectSettings settings) {
-    this.settings = settings;
   }
 
   @XmlElement
