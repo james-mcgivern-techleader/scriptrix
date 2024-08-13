@@ -1,6 +1,6 @@
-package com.scriptrix.scriptrixengine;
+package com.scriptrix.engine;
 
-import com.scriptrix.scriptrixengine.project.Project;
+import com.scriptrix.engine.project.Project;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.Marshaller;

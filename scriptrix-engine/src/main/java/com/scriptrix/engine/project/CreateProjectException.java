@@ -1,4 +1,4 @@
-package com.scriptrix.scriptrixengine.project;
+package com.scriptrix.engine.project;
 
 public class CreateProjectException extends Exception {
   public CreateProjectException(String s) {

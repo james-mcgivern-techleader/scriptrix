@@ -1,4 +1,4 @@
-package com.scriptrix.scriptrixengine.project;
+package com.scriptrix.engine.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.Marshaller;

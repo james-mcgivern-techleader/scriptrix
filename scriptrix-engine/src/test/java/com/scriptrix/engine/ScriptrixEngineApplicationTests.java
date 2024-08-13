@@ -1,4 +1,4 @@
-package com.scriptrix.scriptrixengine;
+package com.scriptrix.engine;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

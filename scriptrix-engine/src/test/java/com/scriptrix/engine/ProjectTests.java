@@ -1,7 +1,7 @@
-package com.scriptrix.scriptrixengine;
+package com.scriptrix.engine;
 
-import com.scriptrix.scriptrixengine.project.Project;
-import com.scriptrix.scriptrixengine.project.ProjectBuilder;
+import com.scriptrix.engine.project.Project;
+import com.scriptrix.engine.project.ProjectBuilder;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.description.Description;
 import org.junit.jupiter.api.AfterEach;
@@ -73,7 +73,7 @@ public class ProjectTests {
     ).containsExactly(tuple(METADATA_DIRECTORY, true));
 
     Path metadataFile = projectDir.resolve(METADATA_DIRECTORY, METADATA_FILE);
-    assertThat(metadataFile).exists();
+    assertThat(metadataFile).as("Check project metadata file exists").exists();
     assertThat(unmarshaller.unmarshal(
         new StreamSource(new FileInputStream(metadataFile.toFile())))
     ).isEqualTo(new Project(NAME, projectDir));

@@ -1,4 +1,4 @@
-package com.scriptrix.scriptrixengine;
+package com.scriptrix.engine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

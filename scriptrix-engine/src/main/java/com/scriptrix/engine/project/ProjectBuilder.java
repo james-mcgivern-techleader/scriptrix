@@ -1,16 +1,17 @@
-package com.scriptrix.scriptrixengine.project;
+package com.scriptrix.engine.project;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.springframework.oxm.Marshaller;
 
 import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static com.scriptrix.scriptrixengine.project.Project.*;
+import static com.scriptrix.engine.project.Project.*;
 
 public class ProjectBuilder {
 
@@ -51,10 +52,12 @@ public class ProjectBuilder {
   }
 
   private void createProjectMetadata() throws CreateProjectException {
-    try {
-      project = new Project(name, projectDir);
-      marshaller.marshal(project, new StreamResult(new FileWriter(METADATA_FILE)));
-    } catch (IOException e) {
+    project = new Project(name, projectDir);
+    File file = projectDir.resolve(METADATA_DIRECTORY, METADATA_FILENAME).toFile();
+    try (FileWriter writer = new FileWriter(file)) {
+      marshaller.marshal(project, new StreamResult(writer));
+      writer.flush();  // Ensure all data is written
+    } catch (Exception e) {
       throw new CreateProjectException("Error saving project metadata", e);
     }
   }
